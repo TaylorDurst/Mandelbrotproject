@@ -1,3 +1,4 @@
+//Calls what is in the ComplexPlane.h file
 #include "ComplexPlane.h"
 
 using namespace std;
@@ -18,6 +19,7 @@ return m_view;
 //Mouse click
 void ComplexPlane::zoomIn()
 {
+    //increment m_zoomCount, set variables x/y and set m_view new size
     m_zoomCount++;
     float x_size = BASE_WIDTH * (pow(BASE_ZOOM, m_zoomCount));
     float y_size = BASE_HEIGHT * m_aspectRatio * (pow(BASE_ZOOM, m_zoomCount));
@@ -26,22 +28,25 @@ void ComplexPlane::zoomIn()
 
 void ComplexPlane::zoomOut()
 {
+    //Same as zoomIn just the m_zoomCount is negative
     m_zoomCount--;
     float x_size = BASE_WIDTH * (pow(BASE_ZOOM, m_zoomCount));
     float y_size = BASE_HEIGHT * m_aspectRatio * (pow(BASE_ZOOM, m_zoomCount));
     m_view.setSize(x_size, y_size);
 }
 
-
+//set Center for the m_view coord
 void ComplexPlane::setCenter(Vector2f coord)
 {
     m_view.setCenter(coord);
 }
 
+//Stores the value in m_mouseLocation variable
 void ComplexPlane::setMouseLocation(Vector2f coord)
 {
     m_mouseLocation = coord;
 }
+//make the words appear on the screan
 void ComplexPlane::loadText(Text& text){
 
     text.setCharacterSize(20);
@@ -59,9 +64,9 @@ void ComplexPlane::loadText(Text& text){
     string << "Right click to Zoom out" << endl;
 
     text.setString(string.str());
-
 }
 
+//Count the number of iterations of the coords
 size_t ComplexPlane::countIterations(Vector2f coord)
 {
     complex<double> c(coord.x, coord.y);

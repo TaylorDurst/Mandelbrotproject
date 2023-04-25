@@ -1,6 +1,8 @@
+//creates the h
 #ifndef COMPLEXPLANE_H
 #define COMPLEXPLANE_H
 
+//brings in the libraries
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <ostream>
@@ -14,6 +16,7 @@ using namespace sf;
 class ComplexPlane
 {
     public:
+    //All the things to call in the other file
     ComplexPlane(float aspectRatio);
     void zoomIn();
     void zoomOut();
@@ -32,7 +35,7 @@ class ComplexPlane
 
 
 };
-
+//global consts
 const unsigned int MAX_ITER =64;
 const float BASE_WIDTH = 4.0;
 const float BASE_HEIGHT = 4.0;
